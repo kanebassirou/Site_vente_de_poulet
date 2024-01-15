@@ -8,6 +8,7 @@
     <br>
     <br>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            
               <a href="{{ route('produit.create') }}" class="btn btn-primary">
                   Ajouter un nouveau poulets
               </a>
@@ -39,7 +40,12 @@
                 <td class="d-inline-flex gap-1">
                         <a href="{{ route('produit.show', $produit->id) }}" class="btn btn-sm btn-primary">Détail</a>
                         <a href="{{ route('produit.edit', $produit->id) }}" class="btn btn-sm btn-warning">Modifier</a>
-                        <a href="#"class ="btn btn-danger btn-sm">Supprime</a>
+                        <form action="{{ route('produit.destroy',$produit->id) }}" method="post">
+                            @csrf
+                            @method("DELETE")
+                            <input onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"
+                            type="submit" value="Supprimer" class="btn btn-sm btn-danger">
+                        </form>
                 </td>
             </tr>
             @endforeach

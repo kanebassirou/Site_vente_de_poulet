@@ -34,7 +34,7 @@ class ProduitController extends Controller
     {
         //
 
-        $valided = $request->validate([
+        $validated = $request->validate([
             'nomProduit' => 'required',
             'descriptionProduit' => 'required',
             'prixProduit' => 'required',
@@ -43,7 +43,7 @@ class ProduitController extends Controller
             'statusProduit' => 'required',
         ]);
         // dd($valided);
-        Produit::create($valided);
+        Produit::create( $validated);
         return redirect()->route('produit.index')
                  ->with('success','Produit ajouté avec succès');
     }
@@ -62,6 +62,7 @@ class ProduitController extends Controller
     public function edit(Produit $produit)
     {
         //
+        return view('produit.edit',compact('produit'));
     }
 
     /**
@@ -70,6 +71,20 @@ class ProduitController extends Controller
     public function update(Request $request, Produit $produit)
     {
         //
+        $validated =$request->validate([
+            'nomProduit' => 'required',
+            'descriptionProduit' => 'required',
+            'prixProduit' => 'required',
+            'poidsProduit' => 'required',
+            'imageProduit' => 'required',
+            'statusProduit' => 'required',
+            
+        ]);
+
+        $produit->update($validated);
+
+        return redirect()->route('produit.index')
+            ->with('success', "Produit modifié avec succès !");
     }
 
     /**
@@ -78,5 +93,9 @@ class ProduitController extends Controller
     public function destroy(Produit $produit)
     {
         //
+        $produit->delete();
+        
+        return redirect()->route('produit.index')
+        ->with('success', "ce poulet est supprimé avec succès !");
     }
 }
