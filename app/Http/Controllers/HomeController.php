@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,8 +20,12 @@ class HomeController extends Controller
             return view('dashboard');
         }
         else {
-            return view('client');
+            $Produit = Produit::all();
+            return view('welcome',compact('Produit'));
         }
     }
+    public function afficherProduit(){
+        $Produit = Produit::all();
+        return view('welcome',compact('Produit'));    }
         
 }
