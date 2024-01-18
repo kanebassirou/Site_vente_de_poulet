@@ -9,7 +9,7 @@
     <br>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             
-              <a href="{{ route('produit.create') }}" class="btn btn-primary">
+              <a href="{{ route('admin.produit.create') }}" class="btn btn-primary">
                   Ajouter un nouveau poulets
               </a>
           </div>
@@ -38,9 +38,9 @@
                 <td>{{ $produit->descriptionProduit }}</td>
                 <td><img src="{{ $produit->imageProduit }}" alt="Product Image" width="50"></td>
                 <td class="d-inline-flex gap-1">
-                        <a href="{{ route('produit.show', $produit->id) }}" class="btn btn-sm btn-primary">Détail</a>
-                        <a href="{{ route('produit.edit', $produit->id) }}" class="btn btn-sm btn-warning">Modifier</a>
-                        <form action="{{ route('produit.destroy',$produit->id) }}" method="post">
+                        <a href="{{ route('admin.produit.show', $produit->id) }}" class="btn btn-sm btn-primary">Détail</a>
+                        <a href="{{ route('admin.produit.edit', $produit->id) }}" class="btn btn-sm btn-warning">Modifier</a>
+                        <form action="{{ route('admin.produit.destroy',$produit->id) }}" method="post">
                             @csrf
                             @method("DELETE")
                             <input onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"

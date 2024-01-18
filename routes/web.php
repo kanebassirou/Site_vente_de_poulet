@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,29 @@ Use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
+    Route::get('/login', [AdminController::class, 'loginForm']);
+    Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
+    Route::get('/register', [AdminController::class, 'registerForm'])->name('admin.register');
+    Route::post('/register', [AdminController::class, 'register'])->name('admin.register.store');
+;
+
+   });
+
+
+
 Route::get('/', [HomeController::class, "afficherProduit"])->name("afficherProduit");
 
 Route::get('/redirects',[HomeController::class,"index"]);
+
+
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 Route::middleware([
     'auth:sanctum',
@@ -30,7 +48,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::prefix('admin')->group(function () {
-       Route::resource('produit', ProduitController::class)->names("produit");
-    });
+    Route::prefix('client')->group(function () {
+       Route::resource('produit', ProduitController::class)->names("admin.produit");
+     });
 });
