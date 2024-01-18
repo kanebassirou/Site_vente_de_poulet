@@ -23,8 +23,8 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
     Route::get('/login', [AdminController::class, 'loginForm']);
     Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
-    Route::get('/register', [AdminController::class, 'registerForm'])->name('admin.register');
-    Route::post('/register', [AdminController::class, 'register'])->name('admin.register.store');
+    Route::get('/register', [AdminController::class, 'registerForm']);
+    Route::post('/register', [AdminController::class, 'register'])->name('admin.register');
 ;
 
    });
@@ -40,6 +40,7 @@ Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', f
     return view('dashboard');
 })->name('dashboard');
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -48,7 +49,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::prefix('client')->group(function () {
+    Route::prefix('admin')->group(function () {
        Route::resource('produit', ProduitController::class)->names("admin.produit");
-     });
+    });
 });

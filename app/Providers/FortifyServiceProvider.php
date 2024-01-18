@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use App\Actions\Fortify\AttemptToAuthenticate; // add new line
+use App\Actions\Fortify\RedirectIfTwoFactorAuthenticatable;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
@@ -13,8 +15,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use App\Http\Controllers\AdminController;
-use Laravel\Fortify\Actions\AttemptToAuthenticate;
-use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
+// use Laravel\Fortify\Actions\AttemptToAuthenticate;
+// use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\Facades\Auth;
 
