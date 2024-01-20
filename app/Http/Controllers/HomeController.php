@@ -26,6 +26,10 @@ class HomeController extends Controller
     }
     public function afficherProduit(){
         $Produit = Produit::all();
+        return view('welcome',compact('Produit'));  
+      }
+      public function acceuil(){
+        $Produit = Produit::all();
         return view('welcome',compact('Produit'));    }
         
 }
