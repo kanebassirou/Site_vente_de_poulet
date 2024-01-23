@@ -4,6 +4,7 @@ use App\Http\Controllers\ProduitController;
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,15 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [HomeController::class,'acceuil']);
-    })->name('acceuil');   // soit affiche sur l'acceuil
+    })->name('acceuil');  
+
+Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+
+    
+    
+    
+    
+    // soit affiche sur l'acceuil
     // Route::prefix('admin')->group(function () {
     //    Route::resource('produit', ProduitController::class)->names("admin.produit");
     // });

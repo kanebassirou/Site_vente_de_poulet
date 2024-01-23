@@ -52,6 +52,7 @@
         </tbody>
     </table>
 </div>
+{{ $produit->links() }}
 @endsection
 {{-- <x-app-layout>
     <x-slot name="header">

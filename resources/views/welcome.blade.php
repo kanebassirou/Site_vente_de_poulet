@@ -83,8 +83,11 @@
 
         </header>
 
+
+
         <!-- MAIN -->
         <main class="main">
+
             <div class="main__leftBox">
                 <div class="main__leftBox--panier">
                     <h2>Panier</h2>
@@ -96,11 +99,28 @@
 
                     </div>
 
+
                 </div>
-                <h6>Total à payer : <span id="totalPayer">0 fcfa</span></h6>
+                <div>
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
+
+
+                <h5>Total à payer : <span id="totalPayer">0 fcfa</span></h5>
                 {{-- <button class="btn btn-success mt-2 ml-2" id="validerCommande" onclick="validerCommande()">Valider la commande</button> --}}
-                <button class="btn btn-secondary mt-2 ml-2" id="validerCommande" onclick="validerCommande()">Valider la
-                    commande</button>
+                <a href="{{ route('valider-commande.create') }}"><button class="btn btn-secondary mt-2 ml-2"
+                        id="validerCommande" onclick="submitCommande()">Valider la commande</button></a>
+
+                {{-- formulaire pour valider la commande avec laravel --}}
+                {{-- <form action="{{ route('valider-commande') }}" method="post" id="commandeForm">
+                    @csrf
+                    <input type="hidden" name="totalPayer" id="totalPayerInput" value="0">
+                    <button type="submit" class="btn btn-secondary mt-2 ml-2">Valider la commande</button>
+                </form> --}}
 
 
             </div>
@@ -113,10 +133,10 @@
                             <img class="product-content--image" src="{{ $produit->imageProduit }}"
                                 alt="{{ $produit->nomProduit }}" />
                             <div class="product-content--imageDesc">
-                                <p>{{ $produit->nomProdut }}</p>
+                                <H6>{{ $produit->nomProdut }}</H6>
                                 <span>{{ $produit->prixProduit }} fcfa</span>
                                 <button class="btnAjoutPanier"
-                                    onclick="ajouterAuPanier('{{ $produit->nomProduit }}', {{ $produit->prixProduit }})">Ajouter
+                                    onclick="ajouterAuPanier(' <H6>{{ $produit->nomProduit }} </H6>', {{ $produit->prixProduit }})">Ajouter
                                     au panier</button>
                             </div>
                         </div>
@@ -138,14 +158,22 @@
                     const panierCount = document.getElementById('panierCount');
                     const panierContent = document.getElementById('panierContent');
                     const totalPayerElement = document.getElementById('totalPayer');
+                    const panierCountInput = document.getElementById('panierCountInput'); // Nouveau champ caché
+
 
                     panierCount.innerText = panier.length;
+                    panierCountInput.value = panier.length;
 
                     const panierHTML = panier.map(item => `<div>${item.nomProduit} - ${item.prixProduit} fcfa</div>`).join('');
                     panierContent.innerHTML = panierHTML;
 
                     const totalPayer = panier.reduce((total, item) => total + item.prixProduit, 0);
                     totalPayerElement.innerText = `${totalPayer} fcfa`;
+
+                    // Sauvegarder le totalPayer dans un cookie ou le stockage local
+                    sauvegarderTotalPayer(totalPayer);
+                    sauvegarderPanierCount(panier.length);
+
                 }
 
                 function validerCommande() {
@@ -154,7 +182,45 @@
                     // Ensuite, réinitialisez le panier et mettez à jour l'interface utilisateur
                     panier = [];
                     updatePanierUI();
-                    alert('Commande validée !');
+                    alert('Vous voulez validée votre Commande !');
+                }
+
+                function sauvegarderTotalPayer(totalPayer) {
+                    // Utilisation des cookies (vous pouvez également utiliser localStorage)
+                    document.cookie = `totalPayer=${totalPayer}`;
+                    // console.log('TotalPayer sauvegardé:', totalPayer);
+                    document.cookie = `totalPayer=${totalPayer}`;
+                }
+
+                function sauvegarderPanierCount(panierCount) {
+                    // Utilisation des cookies (vous pouvez également utiliser localStorage)
+                    document.cookie = `panierCount=${panierCount}`;
+                    console.log('PanierCount sauvegardé:', panierCount);
+                }
+
+
+                function submitCommande() {
+                    // Envoyer le formulaire via AJAX
+
+                    const form = document.getElementById('valider-commande-form');
+                    const formData = new FormData(form);
+
+                    fetch(form.action, {
+                            method: form.method,
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Traitez la réponse si nécessaire
+
+                            // Réinitialisez le panier et mettez à jour l'interface utilisateur
+                            panier = [];
+                            updatePanierUI();
+                            alert('Vous voulez valider votre commande !');
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de la soumission du formulaire:', error);
+                        });
                 }
             </script>
 
