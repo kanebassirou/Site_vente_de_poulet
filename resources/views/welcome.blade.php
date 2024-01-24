@@ -158,11 +158,8 @@
                     const panierCount = document.getElementById('panierCount');
                     const panierContent = document.getElementById('panierContent');
                     const totalPayerElement = document.getElementById('totalPayer');
-                    const panierCountInput = document.getElementById('panierCountInput'); // Nouveau champ caché
-
 
                     panierCount.innerText = panier.length;
-                    panierCountInput.value = panier.length;
 
                     const panierHTML = panier.map(item => `<div>${item.nomProduit} - ${item.prixProduit} fcfa</div>`).join('');
                     panierContent.innerHTML = panierHTML;
@@ -173,7 +170,6 @@
                     // Sauvegarder le totalPayer dans un cookie ou le stockage local
                     sauvegarderTotalPayer(totalPayer);
                     sauvegarderPanierCount(panier.length);
-
                 }
 
                 function validerCommande() {
@@ -195,9 +191,7 @@
                 function sauvegarderPanierCount(panierCount) {
                     // Utilisation des cookies (vous pouvez également utiliser localStorage)
                     document.cookie = `panierCount=${panierCount}`;
-                    console.log('PanierCount sauvegardé:', panierCount);
                 }
-
 
                 function submitCommande() {
                     // Envoyer le formulaire via AJAX

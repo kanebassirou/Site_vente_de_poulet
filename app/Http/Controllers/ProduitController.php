@@ -13,9 +13,9 @@ class ProduitController extends Controller
     public function index()
     {
         //
-        $produits = Produit::paginate(4);
+        $produit = Produit::all();
+        return view('produit.index',compact('produit'));
 
-        return view('produit.index',compact('Produit'));
     }
 
     /**

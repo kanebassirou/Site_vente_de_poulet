@@ -37,10 +37,12 @@ Route::get('/', [HomeController::class, "afficherProduit"])->name("afficherProdu
 Route::get('/redirects',[HomeController::class,"index"]);
 
 
-Route::middleware(['auth:sanctum,admin', 'verified'])->group(function () {
+Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('dashboard');
+        return view('Admin_dashboard');
     })->name('dashboard');
+
+        Route::get('/dashboard', [HomeController::class,'acceuil'])->name('acceuil');
 
     Route::prefix('admin')->group(function () {
         Route::resource('produit', ProduitController::class)->names("produit");
@@ -54,17 +56,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', [HomeController::class,'acceuil']);
-    })->name('acceuil');  
+    Route::get('/dashboard', [HomeController::class,'acceuil'])->name('acceuil');
+    Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+    
+});  
 
-Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+// Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
 
-    
-    
-    
-    
-    // soit affiche sur l'acceuil
-    // Route::prefix('admin')->group(function () {
-    //    Route::resource('produit', ProduitController::class)->names("admin.produit");
-    // });
-// });

@@ -27,6 +27,8 @@
         background-color: #007bff;
     }
 </style>
+ <h3> valider votre commande :</h3>
+ <p>C'est information seron imprimer dans votre facture</p>
 
 <form id="valider-commande-form" action="{{ route('valider-commande.store') }}" method="POST" >
     @csrf
@@ -34,7 +36,7 @@
     <div class="form-group">
         <label for="totalPayerInput">Total à payer</label>
         <!-- Ajoutez readonly pour empêcher l'utilisateur de modifier la valeur -->
-        <input type="text" name="totalPayer" id="totalPayerInput" value="" readonly>
+        <input type="text" name="totalPayer" id="totalPayerInput" value="" class="form-control" readonly>
     </div>
         <div class="form-group">
             <label for="user_id">Id user</label>

@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($Produit as $produit)
+            @foreach ($produit as $produit)
             <tr>
                 <td>{{ $produit->nomProduit }}</td>
                 <td>{{ $produit->prixProduit }}</td>
@@ -52,7 +52,7 @@
         </tbody>
     </table>
 </div>
-{{ $produit->links() }}
+{{-- {{ $produit->links() }} --}}
 @endsection
 {{-- <x-app-layout>
     <x-slot name="header">
