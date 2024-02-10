@@ -20,16 +20,16 @@ class HomeController extends Controller
             return view('dashboard');
         }
         else {
-            $Produit = Produit::all();
+            $Produit = Produit::paginate(6);
             return view('welcome',compact('Produit'));
         }
     }
     public function afficherProduit(){
-        $Produit = Produit::all();
+        $Produit = Produit::paginate(6);
         return view('welcome',compact('Produit'));  
       }
       public function acceuil(){
-        $Produit = Produit::all();
+        $Produit = Produit::paginate(6);
         return view('welcome',compact('Produit'));    }
         
 }

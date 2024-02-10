@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/acceuil1', function () {
+    return view('acceuil');
+})->name('acceuil1');
+
 Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
     Route::get('/login', [AdminController::class, 'loginForm']);
     Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
@@ -48,7 +52,6 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         Route::resource('produit', ProduitController::class)->names("produit");
     });
 });
-
 
 
 Route::middleware([

@@ -1,0 +1,8 @@
+.main__leftBox {
+	background-image: url('C:\Users\Bassirou kane\Desktop\projet Dev Avancee\Site_vente_de_poulet\public\assets\images\background.png'); /* Remplacez par le chemin de votre image */
+	background-size: cover;
+	background-position: center; /* Centrer l'image de fond */
+	height: 400px; /* Définissez la hauteur de votre div */
+	width: 100%; /* Définissez la largeur de votre div */
+  }
+  

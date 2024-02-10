@@ -33,11 +33,11 @@
             <nav class="header__nav">
                 <ul class="header__nav--ul">
                     <li class="ul--list">
-                        <a href="{{route("acceuil1")}}" class="ul--list-link">
+                        <a href="{{ route('acceuil1')}}" class="ul--list-link">
                             <i class="fa-solid fa-house"></i>Accueil</a>
                     </li>
                     <li class="ul--list">
-                        <a href="#product.html" class="ul--list-link">
+                        <a href="/" class="ul--list-link">
                             <i class="fa-brands fa-product-hunt"></i>Produits</a>
                     </li>
                     <li class="ul--list">
@@ -55,33 +55,7 @@
                 </div>
             </div>
 
-            <div
-                class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
-                @if (Route::has('login'))
-                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                        @auth
-                            <a href="{{ route('profile.show') }}"
-                                class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                {{ Auth::user()->name }}</a>
-                            <form method="POST" action="{{ route('logout') }}" class="ml-4">
-                                @csrf
-                                <button type="submit"
-                                    class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                                    Logout
-                                </button>
-                            </form>
-                        @else
-                            <a href="{{ route('login') }}"
-                                class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 custom-login-link">Log
-                                in</a>
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 custom-register-link">Register</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
 
 
         </header>
@@ -90,36 +64,18 @@
 
 
         <!-- MAIN -->
-        <main class="main">
+        <main>
 
-            <div class="main__leftBox">
-                <div class="main__leftBox--panier">
-                    <h2>Panier</h2>
-                    <img src="assets/images/icones/3035365.png" alt="panier" class="panierAnimation" />
-                    <span class="spanPanier" id="panierCount">0</span>
+        <div class="backImg" style="background-image: url('assets/images/background.png'); background-size: cover ;background-repeat: no-repeat;   width: 100%;  height: 300vh;">
+        </div>
 
-                    <div id="panierContent">
-                        <!-- Contenu du panier -->
-
-                    </div>
+                    {{-- <h2>des poulets de qualite</h2> --}}
+                  {{-- <img src="assets/images/background.png" alt=""> --}}
+                  
 
 
-                </div>
-                <div>
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div>
 
-
-                <h5>Total à payer : <span id="totalPayer">0 fcfa</span></h5>
-                {{-- <button class="btn btn-success mt-2 ml-2" id="validerCommande" onclick="validerCommande()">Valider la commande</button> --}}
-                <a href="{{ route('valider-commande.create') }}"><button class="btn btn-secondary mt-2 ml-2"
-                        id="validerCommande" onclick="submitCommande()">Valider la commande</button></a>
-
-                {{-- formulaire pour valider la commande avec laravel --}}
+                      {{-- formulaire pour valider la commande avec laravel --}}
                 {{-- <form action="{{ route('valider-commande') }}" method="post" id="commandeForm">
                     @csrf
                     <input type="hidden" name="totalPayer" id="totalPayerInput" value="0">
@@ -131,27 +87,13 @@
 
             <div class="main__rightBox">
                 <div class="main__rightBox--products">
-                    @foreach ($Produit as $produit)
-                        <div class="product-content">
-
-                            <img class="product-content--image" src="{{ $produit->imageProduit }}"
-                                alt="{{ $produit->nomProduit }}" />
-                            <div class="product-content--imageDesc">
-                                <H6>{{ $produit->nomProdut }}</H6>
-                                <span>{{ $produit->prixProduit }} fcfa</span>
-                                <button class="btnAjoutPanier"
-                                    onclick="ajouterAuPanier(' <H6>{{ $produit->nomProduit }} </H6>', {{ $produit->prixProduit }})">Ajouter
-                                    au panier</button>
-                            </div>
-                        </div>
-                    @endforeach
                   
  
                 </div>
-                <div class="position-relative mt-5">
+                {{-- <div class="position-relative mt-5">
                     {{ $Produit->links() }}
                </div>
- 
+  --}}
            </div>
             </div>
             </main>
@@ -180,9 +122,7 @@
             </div>
         </footer>
     </div>
-    <script src="assets/js/gererCommande.js"></script>
-
-    <script src="assets/js/home.js"></script>
+  
 </body>
 
 </html>
