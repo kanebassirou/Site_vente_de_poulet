@@ -8,12 +8,26 @@ use Illuminate\Http\Request;
 
 class CommandeController extends Controller
 {
+
+    public function validateCommande($id)
+    {
+        $commande = Commande::find($id);
+        $commande->statut = 'Validée';
+        $commande->save();
+
+        // Envoyer une notification au client...
+
+        return redirect()->back()->with('success', 'La commande a été validée.');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        //$
+        $commande = Commande::all();
+        return view('commande.index',compact('commande'));
+        
     }
 
     /**
@@ -21,11 +35,13 @@ class CommandeController extends Controller
      */
     public function create()
     {
+
         //
         Produit::all();
 
         return view('commande.create', [
             'produits' => Produit::all()
+            
         ]);
 
     }
@@ -44,7 +60,8 @@ class CommandeController extends Controller
             'totalPayer' => 'required' ,
             'quantite' => 'required' ,
             'user_id'=> 'required',
-            'idProduit'=> 'required'
+            'idProduit'=> 'required',
+            $validated['statut'] = 'default'
          ]);
 
         //  dd($validated);

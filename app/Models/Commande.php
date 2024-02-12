@@ -13,7 +13,8 @@ class Commande extends Model
     ['user_id', 
     'totalPayer',
     'quantite',
-    'idProduit'
+    'idProduit',
+    'statut'
 
 ]; 
 

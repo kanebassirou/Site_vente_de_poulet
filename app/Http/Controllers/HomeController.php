@@ -30,6 +30,12 @@ class HomeController extends Controller
       }
       public function acceuil(){
         $Produit = Produit::paginate(6);
-        return view('welcome',compact('Produit'));    }
+        return view('welcome',compact('Produit'));    
+    }
+
+        public function show(Produit $produit)
+        {
+            return view('details', compact('produit'));
+        }
         
 }

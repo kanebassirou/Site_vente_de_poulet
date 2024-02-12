@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->decimal('totalPayer');
             $table->integer('quantite');
+            $table ->string('statut');
             $table->unsignedBigInteger('idProduit');
             // les cle etranger
             $table->foreign('user_id')

@@ -21,8 +21,12 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'prenom' => ['required', 'string', 'max:255'], 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
+            'numeroTelephone' => ['required', 'string', 'max:15', 'unique:users'],  // Ajoutez votre règle de validation ici
+            'adresse' => ['required', 'string', 'max:255'], 
+          // Ajoutez votre règle de validation ici
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
@@ -30,6 +34,9 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'numeroTelephone' => $input['numeroTelephone'],
+            'prenom' => $input['prenom'],  // Ajoutez votre attribut ici
+            'adresse' => $input['adresse'],  // Ajoutez votre attribut ici
         ]);
     }
 }

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/css/home/header.css" />
     <link rel="stylesheet" href="assets/css/home/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -139,6 +141,8 @@
                             <div class="product-content--imageDesc">
                                 <H6>{{ $produit->nomProdut }}</H6>
                                 <span>{{ $produit->prixProduit }} fcfa</span>
+                                
+                                <button class="btn btn-light"><a href="{{ route('details', $produit->id) }}">voir les details</a></button>
                                 <button class="btnAjoutPanier"
                                     onclick="ajouterAuPanier(' <H6>{{ $produit->nomProduit }} </H6>', {{ $produit->prixProduit }})">Ajouter
                                     au panier</button>
@@ -169,8 +173,10 @@
                         class="fa-brands fa-youtube"></i></a>
                 <a href="www.instagram.com" target="_blank" class="footer__socialNetwork--link instagram"><i
                         class="fa-brands fa-square-instagram"></i></a>
-                <a href="www.whatsapp.com" target="_blank" class="footer__socialNetwork--link whatsapp"><i
-                        class="fa-brands fa-square-whatsapp"></i></a>
+                        <a href="https://wa.me/764?text=Bonjour" target="_blank" class="footer__socialNetwork--link whatsapp">
+                            <i class="fa-brands fa-square-whatsapp" style="font-size: 2em;"></i>
+                        </a>
+                        
                 <a href="www.twitter.com" target="_blank" class="footer__socialNetwork--link twitter"><i
                         class="fa-brands fa-twitter"></i></a>
             </div>

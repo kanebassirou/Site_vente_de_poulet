@@ -7,84 +7,56 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Liste des Produits</h3>
-                    <a href="{{ route('produit.index') }}" class="text-blue-500">Voir la liste des produits</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Ventes -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Ventes</h3>
+                        <div class="mt-2 max-w-xl text-sm text-gray-500">
+                            <p>Total des ventes ce mois-ci : 2222222222222222</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 1. Stock de Poulet -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Stock de Poulet</h3>
-                    <p>Quantité actuelle en stock : 500</p>
+                <!-- Commandes -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Commandes</h3>
+                        <div class="mt-2 max-w-xl text-sm text-gray-500">
+                            <p>Nombre total de commandes : 569000</p>
+                        </div>
+                        <div class="mt-5">
+                            <a href="{{ route('valider-commande.index') }}" class="text-blue-500">Voir les commandes</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 2. Statistiques des Ventes -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Statistiques des Ventes</h3>
-                    <p>Total des ventes ce mois-ci : $25,000</p>
-                    <!-- Ajoutez des graphiques ou d'autres statistiques si nécessaire -->
+                <!-- Clients -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Clients</h3>
+                        <div class="mt-2 max-w-xl text-sm text-gray-500">
+                            <p>Nombre total de clients : 4567776</p>
+                        </div>
+                        <div class="mt-5">
+                            <a href="#" class="text-blue-500">Voir les clients</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 3. Commandes en Attente -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Commandes en Attente</h3>
-                    <ul>
-                        <li>Commande #123 - En attente de traitement</li>
-                        <li>Commande #124 - En attente de confirmation de paiement</li>
-                    </ul>
+                <!-- Produits -->
+                <div class="bg-white overflow-hidden shadow rounded-lg">
+                    <div class="px-4 py-5 sm:p-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Produits</h3>
+                        <div class="mt-2 max-w-xl text-sm text-gray-500">
+                            <p>Nombre total de produits : 679000</p>
+                        </div>
+                        <div class="mt-5">
+                            <a href="{{ route("produit.index")}}" class="text-blue-500">Voir les produits</a>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- 4. Produits les plus Vendus -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Produits les plus Vendus</h3>
-                    <p>Poulet Rôti - 120 unités vendues</p>
-                    <p>Poulet Grillé - 90 unités vendues</p>
-                </div>
-
-                <!-- 5. Statut de Livraison -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Statut de Livraison</h3>
-                    <p>Commande #123 - En transit</p>
-                    <p>Commande #124 - Livrée</p>
-                </div>
-
-                <!-- 6. Alertes de Stock Faible -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Alertes de Stock Faible</h3>
-                    <p>Alerte : Stock de Poulet Grillé faible</p>
-                </div>
-
-                <!-- 7. Feedback Client -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Feedback Client</h3>
-                    <ul>
-                        <li>Avis positif de Client #1 - "Excellent service!"</li>
-                        <li>Avis négatif de Client #2 - "Délai de livraison trop long"</li>
-                    </ul>
-                </div>
-
-                <!-- 8. Promotions en Cours -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Promotions en Cours</h3>
-                    <p>Promotion spéciale : 10% de réduction sur le Poulet Rôti</p>
-                </div>
-
-                <!-- 9. Rappels de Commande -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Rappels de Commande</h3>
-                    <p>Rappel : Prochaine livraison pour l'abonnement mensuel le 25 janvier</p>
-                </div>
-
-                <!-- 10. Statut du Site -->
-                <div class="mb-8">
-                    <h3 class="text-lg font-semibold mb-2">Statut du Site</h3>
-                    <p>Le site fonctionne normalement</p>
-                </div>
-
             </div>
         </div>
     </div>
-
-    
 </x-app-layout>

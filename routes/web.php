@@ -20,6 +20,7 @@ use App\Http\Controllers\CommandeController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('detail/{produit}', [HomeController::class, 'show'])->name('details');
 
 Route::get('/acceuil1', function () {
     return view('acceuil');
@@ -30,7 +31,6 @@ Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
     Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
     Route::get('/register', [AdminController::class, 'registerForm']);
     Route::post('/register', [AdminController::class, 'register'])->name('admin.register');
-;
 
    });
 
@@ -50,6 +50,10 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::resource('produit', ProduitController::class)->names("produit");
+        Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+        Route::get('/commandes/{id}/validate', [CommandeController::class, 'validateCommande'])->name('commandes.validate');
+
+
     });
 });
 

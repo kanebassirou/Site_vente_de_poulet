@@ -50,7 +50,7 @@
 
 .main__rightBox--products {
 	display: flex;
-    /* gap: 20px; */
+    gap: 20px;
     flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
     justify-content: space-between; 
 }
@@ -58,7 +58,7 @@
 /* Nos produits */
 .product-content {
 	width: calc(33.33% - 20px); /* Ajustez la largeur en fonction du nombre d'éléments par ligne */
-    height: 400px;
+    height: 46w0px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px; /* Ajoutez une marge entre les produits */
 }

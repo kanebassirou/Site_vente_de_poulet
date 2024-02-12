@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vente de poulet</title>
-    <link rel="stylesheet" href="assets/css/home/panier.css">
+    {{-- <link rel="stylesheet" href="assets/css/home/panier.css"> --}}
     <link rel="stylesheet" href="assets/css/home/footer.css" />
     <link rel="stylesheet" href="assets/css/home/header.css" />
-    <link rel="stylesheet" href="assets/css/home/main.css" />
+    {{-- <link rel="stylesheet" href="assets/css/home/main.css" /> --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -66,7 +66,7 @@
         <!-- MAIN -->
         <main>
 
-        <div class="backImg" style="background-image: url('assets/images/background.png'); background-size: cover ;background-repeat: no-repeat;   width: 100%;  height: 300vh;">
+        <div class="backImg" style="background-image: url('assets/images/background.png'); background-size: cover ;background-repeat: no-repeat;   width: 100%;  height: 300vh; image-rendering: optimizeQuality;">
         </div>
 
                     {{-- <h2>des poulets de qualite</h2> --}}
