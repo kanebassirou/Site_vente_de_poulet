@@ -15,9 +15,9 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Tableau de bord') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('produit.index') }}" :active="request()->routeIs('produit.index')">
+                    {{-- <x-nav-link href="{{ route('produit.index') }}" :active="request()->routeIs('produit.index')">
                         {{ __('liste des produits') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                 </div>
             </div>
 

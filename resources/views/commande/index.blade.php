@@ -19,6 +19,12 @@
     
 </div>
 
+@if(session('success'))
+    <div class="bg-green-200 text-green-800 px-4 py-2 mb-4">
+        {{ session('success') }}
+    </div>
+@endif
+
 
         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">

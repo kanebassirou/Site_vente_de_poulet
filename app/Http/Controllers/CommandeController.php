@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commande;
 use App\Models\Produit;
+use App\Notifications\CommandeValidated;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -16,6 +17,8 @@ class CommandeController extends Controller
         $commande->save();
 
         // Envoyer une notification au client...
+        $commande->user->notify(new CommandeValidated($commande));
+
 
         return redirect()->back()->with('success', 'La commande a été validée.');
     }

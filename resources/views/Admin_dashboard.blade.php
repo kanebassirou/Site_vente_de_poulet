@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Tableau de bord') }}
+            {{ __("Page d'administateur") }}
         </h2>
     </x-slot>
 
@@ -39,7 +39,7 @@
                             <p>Nombre total de clients : 4567776</p>
                         </div>
                         <div class="mt-5">
-                            <a href="#" class="text-blue-500">Voir les clients</a>
+                            <a href="{{ route('clients.index')}}" class="text-blue-500">Voir les clients</a>
                         </div>
                     </div>
                 </div>
@@ -53,6 +53,8 @@
                         </div>
                         <div class="mt-5">
                             <a href="{{ route("produit.index")}}" class="text-blue-500">Voir les produits</a>
+                            
+                            
                         </div>
                     </div>
                 </div>

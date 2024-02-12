@@ -7,10 +7,12 @@
     </h2>
     <br>
     <br>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            
+          <div class="d-grid gap-2 d-md-flex justify-content-between">
+              <a href=" {{ route('dashboard')}}" class=" btn btn-secondary">
+                  retour
+              </a>
               <a href="{{ route('produit.create') }}" class="btn btn-primary">
-                  Ajouter un nouveau poulets
+                  Retour Ajouter un nouveau poulet 
               </a>
           </div>
           @if (Session::has('success'))

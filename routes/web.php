@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,8 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         Route::resource('produit', ProduitController::class)->names("produit");
         Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
         Route::get('/commandes/{id}/validate', [CommandeController::class, 'validateCommande'])->name('commandes.validate');
+        Route::get('/dashboard/clients', [userController::class, 'index'])->name('clients.index');
+
 
 
     });
