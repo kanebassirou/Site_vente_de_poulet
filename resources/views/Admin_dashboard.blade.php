@@ -1,9 +1,14 @@
-<x-app-layout>
-    <x-slot name="header">
+@extends('layouts/layout')
+@section('title', 'Dashbord')
+@section('title', 'Accueil')
+@section('content')
+{{-- <x-app-layout>  --}}
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __("Page d'administateur") }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -13,7 +18,7 @@
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Ventes</h3>
                         <div class="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Total des ventes ce mois-ci : 2222222222222222</p>
+                            <p>Total des ventes ce mois-ci : {{$totalVentesMois}}</p>
                         </div>
                     </div>
                 </div>
@@ -23,10 +28,10 @@
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Commandes</h3>
                         <div class="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Nombre total de commandes : 569000</p>
+                            <p>Nombre total de commandes :{{$totalCommandes }}</p>
                         </div>
                         <div class="mt-5">
-                            <a href="{{ route('valider-commande.index') }}" class="text-blue-500">Voir les commandes</a>
+                            <a href="{{ route('commande.index') }}" class="text-blue-500">Voir les commandes</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +41,7 @@
                     <div class="px-4 py-5 sm:p-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Clients</h3>
                         <div class="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Nombre total de clients : 4567776</p>
+                            <p>Nombre total de clients :    {{ $totalClients }}</p>
                         </div>
                         <div class="mt-5">
                             <a href="{{ route('clients.index')}}" class="text-blue-500">Voir les clients</a>
@@ -61,4 +66,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+{{-- </x-app-layout> --}}
+@endsection

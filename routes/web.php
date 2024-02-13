@@ -6,6 +6,9 @@ Use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\userController;
+use App\Models\User;
+use App\Models\Commande;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,14 +47,23 @@ Route::get('/redirects',[HomeController::class,"index"]);
 
 Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('Admin_dashboard');
+        $totalClients = User::count();
+        
+        // Obtenir le total des ventes du mois
+        $totalVentesMois = Commande::whereMonth('created_at', Carbon::now()->month)->sum('totalPayer');
+        
+        // Obtenir le nombre total de commandes
+        $totalCommandes = Commande::count();
+        
+        return view('Admin_dashboard', compact('totalClients', 'totalVentesMois', 'totalCommandes'));
     })->name('dashboard');
+
 
         Route::get('/dashboard', [HomeController::class,'acceuil'])->name('acceuil');
 
     Route::prefix('admin')->group(function () {
         Route::resource('produit', ProduitController::class)->names("produit");
-        Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+        Route::resource('commande', CommandeController::class)->names("commande");
         Route::get('/commandes/{id}/validate', [CommandeController::class, 'validateCommande'])->name('commandes.validate');
         Route::get('/dashboard/clients', [userController::class, 'index'])->name('clients.index');
 
@@ -67,7 +79,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [HomeController::class,'acceuil'])->name('acceuil');
-    Route::resource('valider-commande', CommandeController::class)->names("valider-commande");
+    Route::resource('valider-commande', CommandeController::class)->names("valider-commande")
+    ->except('index')->except('show');
     
 });  
 

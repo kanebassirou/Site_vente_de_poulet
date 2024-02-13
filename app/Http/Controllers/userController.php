@@ -10,8 +10,9 @@ class userController extends Controller
     //
     public function index()
     {
-        $clients = User::all(); // Remplacez User par le modèle que vous utilisez pour vos clients
+        $clients = User::all(); 
+        $totalClients = $clients->count();
 
-        return view('users.index',compact('clients'));
+        return view('users.index',compact('clients','totalClients'));
     }
 }
