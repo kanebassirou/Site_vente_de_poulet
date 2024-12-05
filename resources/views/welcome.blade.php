@@ -168,17 +168,17 @@
             <div class="footer__socialNetwork">
                 <h3 class="footer__socialNetwork--h3">Reseaux sociaux</h3>
                 <a href="www.facebook.com" target="_blank" class="footer__socialNetwork--link facebook"><i
-                        class="fa-brands fa-facebook"></i></a>
+                        class="fa-brands fa-facebook" style="font-size: 2em;"></i></a>
                 <a href="www.youtube.com" target="_blank" class="footer__socialNetwork--link youtube"><i
-                        class="fa-brands fa-youtube"></i></a>
+                        class="fa-brands fa-youtube" style="font-size: 2em;"></i></a>
                 <a href="www.instagram.com" target="_blank" class="footer__socialNetwork--link instagram"><i
-                        class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://wa.me/764?text=Bonjour" target="_blank" class="footer__socialNetwork--link whatsapp">
+                        class="fa-brands fa-square-instagram" style="font-size: 2em;"></i></a>
+                        <a href="https://wa.me/+221764348350?text=Bonjour" target="_blank" class="footer__socialNetwork--link whatsapp">
                             <i class="fa-brands fa-square-whatsapp" style="font-size: 2em;"></i>
                         </a>
                         
-                <a href="www.twitter.com" target="_blank" class="footer__socialNetwork--link twitter"><i
-                        class="fa-brands fa-twitter"></i></a>
+                <a href="www.twitter.com" target="_blank" class="footer__socialNetwork--link twitter" style="font-size: 2em;"><i
+                        class="fa-brands fa-twitter" style="font-size: 2em;"></i></a>
             </div>
 
             <div class="copyright">

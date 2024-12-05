@@ -46,7 +46,7 @@
                             @csrf
                             @method("DELETE")
                             <input onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')"
-                            type="submit" value="Supprimer" class="btn btn-sm btn-danger">
+                            type="submit" value="Supprimer" class="btn-danger">
                         </form>
                 </td>
             </tr>

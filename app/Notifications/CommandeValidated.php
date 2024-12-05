@@ -39,8 +39,8 @@ class CommandeValidated extends Notification
                     ->subject('Votre commande a été validée')
                     ->greeting('Bonjour ' . $notifiable->name . ',')
                     ->line('Nous sommes heureux de vous informer que votre commande a été validée.')
-                    ->action('Voir la commande', url('/details/' . $this->commande->id))
-                    ->line('Merci d\'avoir utilisé notre application !');
+                    ->action('Voir la commande', url('/'))
+                    ->line('Merci d\'avoir utilisé notre application GunarGUi la site de vente de poulet au senegal !');
     }
     
 
